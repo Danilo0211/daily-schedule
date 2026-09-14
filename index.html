@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Time of Day by Danilo</title>
+    
+    <style>
+        
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+        /* We target the HTML element directly for our background color swap */
+        html {
+            background-color: #f4f4f9; 
+            transition: background-color 0.5s ease; /* Makes the color change smooth */
+        }
+
+       body {
+    font-size: 1.rem;
+    font-family: "Roboto",Arial,sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 40px 20px;
+    color: #333;
+}
+.entrance{
+    color:#851A05;
+}
+.schedule-heading {
+    margin-top: 45px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+.schedule-list {
+    list-style: none;
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 0;
+}
+
+.schedule-list li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: #f7f8fc;
+    margin: 15px 0;
+    padding: 18px 22px;
+
+    border-radius: 12px;
+    border-left: 6px solid #4caf50;
+
+    text-align: center;
+    font-size: 1.50rem;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.schedule-list li:hover {
+    transform: translateX(8px);
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.12);
+}
+
+.schedule-list strong {
+    min-width: 190px;
+    font-weight: 700;
+}
+        /* Our main container for the content */
+       .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+    #main-greeting {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    
+}
+#time-text {
+    font-size: 1.8rem;
+    margin: 20px 0;
+}#currentDate {
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    
+    font-size: 2rem;
+    margin: 10px 0 5px;
+}
+
+#currentTime {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 5px 0 25px;
+}
+        /* Styling our main image */
+#time-pic {
+        
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    height: 320px;
+    object-fit: cover;
+    margin: 30px auto;
+    border-radius: 18px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#time-pic:hover {
+    transform: scale(1.02);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+}
+    .day-progress {    
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #f7f8fc;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.progress-container {
+    width: 100%;
+    height: 25px;
+    background-color: #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: #4caf50;
+    border-radius: 15px;
+    transition: width 0.5s ease;
+}
+
+#progress-text {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 10px 0 0;
+}
+/*end progress bar feature. */
+#last::first-letter{
+  font-size: 200%;
+  font-weight: bold;
+  color: #020005;
+}
+#last{
+    padding: 30px;
+    margin: 10px 20px;
+    font-size: large;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+    <section>
+        <br>
+        <h1 id="main-greeting">Time of the Day by Danilo Araujo</h1>
+        
+        <h2 id="time-text">What time is it?</h2>
+
+        <!--current day function-->
+        <p id="currentDate"></p>
+        <p id="currentTime"></p>
+    </section>
+        <!--adding progress feature-->
+    <section class="day-progress">
+    <h2>Today's Progress</h2>
+
+    <div class="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <p id="progress-text">0% Complete</p>
+    <div class="entrance">
+    <p><strong>Create a web page that uses JavaScript to determine the current hour, and presents
+         a different image, custom message, 
+         and color based on each of the following times of day:</strong> </p></div>
+    
+        <h2 class="schedule-heading">Daily Schedule</h2>
+        <ul class="schedule-list">
+            <li><strong>5:00 AM – 6:00 AM:</strong><strong>Wake Up Time</strong></li>
+            <li><strong>6:00 AM – 8:00 AM:</strong><strong>Breakfast!!</strong></li>
+            <li><strong>8:00 AM – 12:00 PM:</strong><strong> Working Time</strong></li>
+            <li><strong>12:00 PM – 13:00 PM:</strong><strong>Lunch Time</strong></li>
+            <li><strong>13:00 PM – 17:00 PM:</strong><strong>Continuing Working</strong></li>
+            <li><strong>17:00 PM – 18:00 PM:</strong><strong>Dinner Time</strong></li>
+            <li><strong>18:00 PM – 21:00 PM:</strong><strong> Relax Time</strong></li>
+        </ul>
+     </section>                   
+    <img id="time-pic" src="images/morning.png" alt="Time of Day Image">
+    
+     <p id="last"><strong>In this assignment, I worked with the JavaScript Date object to
+        
+        integrate information from the client's system clock into a web page.  Consider adding data to the page using document.getElementById() for example to place your data on the page.</strong></p>    
+    
+    </div>     
+    <script>
+        //adding progress feature
+    function updateDayProgress() {
+
+    const now = new Date();
+
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+
+    // Convert current time to minutes
+    const currentMinutes = (currentHour * 60) + currentMinute;
+
+    // Total minutes in a day
+    const totalMinutes = 24 * 60;
+
+    // Calculate percentage
+    const percentComplete = Math.floor(
+        (currentMinutes / totalMinutes) * 100
+    );
+
+
+    // Update HTML
+    document.getElementById("progress-bar").style.width =
+        percentComplete + "%";
+
+    document.getElementById("progress-text").textContent =
+        percentComplete + "% Complete";
+}
+
+
+// Run function
+updateDayProgress();
+
+
+// Update every minute
+setInterval(updateDayProgress, 60000);
+// end progress feature. 
+      
+        let myDate = new Date();
+        const currentTime = myDate.toLocaleTimeString("en-US");
+         document.getElementById("currentTime").textContent = currentTime;
+
+        let myHour = myDate.getHours();
+        const currentDate = myDate.toLocaleDateString("en-US", {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+        }); 
+
+        document.getElementById("currentDate").textContent = currentDate;
+        let mySentence = "";
+        let myColor = "";
+        let myPic = "";
+
+        //Testing only comment out following LINE:// myHour = 2;
+
+        if(myHour >= 5 && myHour < 6) {
+            mySentence = "🌅 Wake Up Time! Start your day with energy.";
+            myColor = "#F5AD27";
+            myPic = "morning.png";
+        }
+         else if(myHour >= 6 && myHour < 8) {    
+             mySentence = "Every morning is a new opportunity.";
+            myColor = "#FF5EE25";
+            myPic = "breakfast.jpg";
+         }
+        else if(myHour >= 8 && myHour < 12) { 
+             mySentence = "💼 Work Time! Stay focused and productive.";
+            myColor = "#A66514";
+            myPic = "work.jpg";
+        }    
+        else if(myHour >= 12 && myHour < 13) { 
+             mySentence = "🍽️ Lunch Time! Take a break and recharge.";
+            myColor = "#A66514";
+            myPic = "lunch.jpg";
+        }
+        else if(myHour >= 13 && myHour < 17) { 
+             mySentence = "📚 Afternoon Focus! Keep going—you've got this!";
+            myColor = "#A66514";
+            myPic = "con.work.jpg";
+        }
+        else if(myHour >= 17 && myHour < 18) { 
+             mySentence = "🍽️ Dinner Time! Enjoy your meal.";
+            myColor = "#A66514";
+            myPic = "dinner.jpg";    
+        }
+        else if(myHour >= 18 && myHour < 21) { 
+             mySentence = "📺 Relax Time! Watch a movie or read a book.";
+            myColor = "#241502";
+            myPic = "relax.jpg";  
+        }
+        else {
+            mySentence = "😴 Sleeping Time. Rest well!";
+            myColor = "#0A0600";
+            myPic = "late.night.jpg";
+        }
+
+        //adds sentence to page
+        document.getElementById("time-text").innerHTML = mySentence;
+        
+        //adds color to html
+        document.querySelector('html').style.backgroundColor = myColor;
+        
+
+        //adds image path to pic        
+         myPic = "images/" + myPic;
+         document.getElementById("time-pic").src = myPic;     
+
+        //change to our pic
+        document.getElementById("time-pic").src = myPic;
+
+        // Fixes HTML/CSS Checker links
+        document.addEventListener("DOMContentLoaded", function() {
+            var currentUrl = window.location.href;
+            document.getElementById("html-validate").href = "https://validator.w3.org/nu/?doc=" + encodeURIComponent(currentUrl);
+            document.getElementById("css-validate").href = "https://jigsaw.w3.org/css-validator/validator?uri=" + encodeURIComponent(currentUrl);
+        });
+        
+    </script>  
+    <footer style="margin-top: 30px;">
+        <small>
+            <a id="html-validate" href="" target="_blank">Check HTML</a> | 
+            <a id="css-validate" href="" target="_blank">Check CSS</a>
+        </small>
+    </footer>
+
+</body>
+</html>
